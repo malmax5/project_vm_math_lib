@@ -1,12 +1,12 @@
 #pragma once
 
+#include <stdexcept>
+#include <string>
+
 namespace pvm_math_lib
 {
 namespace calculator_exceptions
 {
-
-#include <stdexcept>
-#include <string>
 
 class CalculatorExceptionBase : public std::runtime_error
 {
