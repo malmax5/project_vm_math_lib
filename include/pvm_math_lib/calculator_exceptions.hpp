@@ -14,5 +14,21 @@ public:
     using std::runtime_error::runtime_error;
 };
 
-} // namespace exceptions
+class CalculatorExceptionOverflow : public CalculatorExceptionBase
+{
+public:
+    CalculatorExceptionOverflow()
+        : CalculatorExceptionBase("Calculator Error: Mathematical overflow occured.")
+    {
+
+    }
+
+    explicit CalculatorExceptionOverflow(const std::string& msg)
+        : CalculatorExceptionBase(msg)
+    {
+
+    }
+};
+
+} // namespace calculator_exceptions
 } // namespace pvm_math_lib
