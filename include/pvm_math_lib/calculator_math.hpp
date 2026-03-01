@@ -3,6 +3,8 @@
 namespace pvm_math_lib
 {
 
+#include "calculator_exceptions.hpp"
+
 enum class MathStatus
 {
     OK = 0,
