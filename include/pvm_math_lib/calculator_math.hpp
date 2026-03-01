@@ -26,7 +26,14 @@ public:
 
     long long add(long long first, long long second) override
     {
-        return 0LL;
+        long long result;
+
+        if (__builtin_add_overflow(first, second, &result)) 
+        {
+            throw calculator_exceptions::CalculatorExceptionOverflow();
+        }
+
+        return result;
     }
 
     long long sub(long long first, long long second) override
