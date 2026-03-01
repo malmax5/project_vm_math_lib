@@ -30,5 +30,21 @@ public:
     }
 };
 
+class CalculatorExceptionDivideByZero : public CalculatorExceptionBase
+{
+public:
+    CalculatorExceptionDivideByZero()
+        : CalculatorExceptionBase("Calculator Error: Division by zero is undefined.")
+    {
+
+    }
+
+    explicit CalculatorExceptionDivideByZero(const std::string& msg)
+        : CalculatorExceptionBase(msg)
+    {
+
+    }
+};
+
 } // namespace calculator_exceptions
 } // namespace pvm_math_lib
