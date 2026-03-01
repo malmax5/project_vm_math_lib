@@ -46,5 +46,21 @@ public:
     }
 };
 
+class CalculatorExceptionInvalidOperands : public CalculatorExceptionBase
+{
+public:
+    CalculatorExceptionInvalidOperands()
+        : CalculatorExceptionBase("Calculator Error: Invalid operands for this operation.")
+    {
+
+    }
+
+    explicit CalculatorExceptionInvalidOperands(const std::string& msg)
+        : CalculatorExceptionBase(msg)
+    {
+
+    }
+};
+
 } // namespace calculator_exceptions
 } // namespace pvm_math_lib
