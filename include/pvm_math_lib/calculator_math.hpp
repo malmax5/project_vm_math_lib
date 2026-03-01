@@ -74,7 +74,39 @@ public:
 
     long long pow(long long num, long long exp) override
     {
-        return 0LL;
+        if (exp < 0)
+        {
+            throw calculator_exceptions::CalculatorExceptionInvalidOperands();
+        }
+
+        long long result;
+
+        if (exp == 0)
+        {
+            result = 1;
+            return result;
+        }
+
+        long long resultTmp = 1;
+
+        while (exp)
+        {
+            if (exp & 1 && __builtin_mul_overflow(resultTmp, num, &resultTmp))
+            {
+                throw calculator_exceptions::CalculatorExceptionOverflow();
+            }
+
+            if (__builtin_mul_overflow(num, num, &num))
+            {
+                throw calculator_exceptions::CalculatorExceptionOverflow();
+            }
+
+            exp >>= 1;
+        }
+
+        result = resultTmp;
+
+        return result;
     }
 
     long long factorial(long long n) override
