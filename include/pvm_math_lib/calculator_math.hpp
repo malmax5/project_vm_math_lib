@@ -19,6 +19,42 @@ public:
     virtual long long factorial(long long n) = 0;
 };
 
+class Calculator : public ICalculator
+{
+public:
+    virtual ~Calculator() = default;
+
+    long long add(long long first, long long second) override
+    {
+        return 0LL;
+    }
+
+    long long sub(long long first, long long second) override
+    {
+        return 0LL;
+    }
+
+    long long mul(long long first, long long second) override
+    {
+        return 0LL;
+    }
+
+    long long div(long long first, long long second) override
+    {
+        return 0LL;
+    }
+
+    long long pow(long long num, long long exp) override
+    {
+        return 0LL;
+    }
+
+    long long factorial(long long n) override
+    {
+        return 0LL;
+    }
+};
+
 enum class MathStatus
 {
     OK = 0,
