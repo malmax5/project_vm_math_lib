@@ -38,7 +38,14 @@ public:
 
     long long sub(long long first, long long second) override
     {
-        return 0LL;
+        long long result;
+
+        if (__builtin_sub_overflow(first, second, &result))
+        {
+            throw calculator_exceptions::CalculatorExceptionOverflow();
+        }
+
+        return result;
     }
 
     long long mul(long long first, long long second) override
