@@ -10,13 +10,13 @@ class ICalculator
 public:
     virtual ~ICalculator() = default;
 
-    virtual long long add(long long first, long long second) = 0;
-    virtual long long sub(long long first, long long second) = 0;
-    virtual long long mul(long long first, long long second) = 0;
-    virtual long long div(long long first, long long second) = 0;
+    virtual long long add(long long first, long long second) const = 0;
+    virtual long long sub(long long first, long long second) const = 0;
+    virtual long long mul(long long first, long long second) const = 0;
+    virtual long long div(long long first, long long second) const = 0;
 
-    virtual long long pow(long long num, long long exp) = 0;
-    virtual long long factorial(long long n) = 0;
+    virtual long long pow(long long num, long long exp) const = 0;
+    virtual long long factorial(long long n) const = 0;
 };
 
 class Calculator : public ICalculator
@@ -24,7 +24,7 @@ class Calculator : public ICalculator
 public:
     virtual ~Calculator() = default;
 
-    long long add(long long first, long long second) override
+    long long add(long long first, long long second) const override
     {
         long long result;
 
@@ -36,7 +36,7 @@ public:
         return result;
     }
 
-    long long sub(long long first, long long second) override
+    long long sub(long long first, long long second) const override
     {
         long long result;
 
@@ -48,7 +48,7 @@ public:
         return result;
     }
 
-    long long mul(long long first, long long second) override
+    long long mul(long long first, long long second) const override
     {
         long long result;
 
@@ -60,7 +60,7 @@ public:
         return result;
     }
 
-    long long div(long long first, long long second) override
+    long long div(long long first, long long second) const override
     {
         if (second == 0)
         {
@@ -72,7 +72,7 @@ public:
         return result;
     }
 
-    long long pow(long long num, long long exp) override
+    long long pow(long long num, long long exp) const override
     {
         if (exp < 0)
         {
@@ -109,7 +109,7 @@ public:
         return result;
     }
 
-    long long factorial(long long n) override
+    long long factorial(long long n) const override
     {
         if (n < 0)
         {
