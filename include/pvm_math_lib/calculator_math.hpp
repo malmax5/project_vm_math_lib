@@ -5,6 +5,20 @@ namespace pvm_math_lib
 
 #include "calculator_exceptions.hpp"
 
+class ICalculator
+{
+public:
+    virtual ~ICalculator() = default;
+
+    virtual long long add(long long first, long long second) = 0;
+    virtual long long sub(long long first, long long second) = 0;
+    virtual long long mul(long long first, long long second) = 0;
+    virtual long long div(long long first, long long second) = 0;
+
+    virtual long long pow(long long num, long long exp) = 0;
+    virtual long long factorial(long long n) = 0;
+};
+
 enum class MathStatus
 {
     OK = 0,
