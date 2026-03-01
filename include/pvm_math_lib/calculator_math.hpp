@@ -1,9 +1,9 @@
 #pragma once
 
+#include "calculator_exceptions.hpp"
+
 namespace pvm_math_lib
 {
-
-#include "calculator_exceptions.hpp"
 
 class ICalculator
 {
