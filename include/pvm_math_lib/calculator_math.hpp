@@ -111,7 +111,24 @@ public:
 
     long long factorial(long long n) override
     {
-        return 0LL;
+        if (n < 0)
+        {
+            throw calculator_exceptions::CalculatorExceptionInvalidOperands();
+        }
+        else if (n == 0 || n == 1)
+        {
+            return 1;
+        }
+
+        long long prev = factorial(n - 1);
+        long long result;
+
+        if (__builtin_mul_overflow(n, prev, &result))
+        {
+            throw calculator_exceptions::CalculatorExceptionOverflow();
+        }
+
+        return result;
     }
 };
 
