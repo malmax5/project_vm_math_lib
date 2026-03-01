@@ -62,7 +62,14 @@ public:
 
     long long div(long long first, long long second) override
     {
-        return 0LL;
+        if (second == 0)
+        {
+            throw calculator_exceptions::CalculatorExceptionDivideByZero();
+        }
+
+        long long result = first / second;
+
+        return result;
     }
 
     long long pow(long long num, long long exp) override
