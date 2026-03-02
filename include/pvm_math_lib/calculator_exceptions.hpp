@@ -3,9 +3,7 @@
 #include <stdexcept>
 #include <string>
 
-namespace pvm_math_lib
-{
-namespace calculator_exceptions
+namespace pvm_math_lib::calculator_exceptions
 {
 
 class CalculatorExceptionBase : public std::runtime_error
@@ -62,5 +60,4 @@ public:
     }
 };
 
-} // namespace calculator_exceptions
-} // namespace pvm_math_lib
+} // namespace pvm_math_lib::calculator_exceptions
