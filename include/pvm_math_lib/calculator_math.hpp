@@ -38,7 +38,7 @@ public:
 
     long long add(long long first, long long second) const override
     {
-        long long result;
+        long long result = 0;
 
         if (__builtin_add_overflow(first, second, &result)) 
         {
@@ -50,7 +50,7 @@ public:
 
     long long sub(long long first, long long second) const override
     {
-        long long result;
+        long long result = 0;
 
         if (__builtin_sub_overflow(first, second, &result))
         {
@@ -62,7 +62,7 @@ public:
 
     long long mul(long long first, long long second) const override
     {
-        long long result;
+        long long result = 0;
 
         if (__builtin_mul_overflow(first, second, &result))
         {
@@ -91,7 +91,7 @@ public:
             throw calculator_exceptions::CalculatorExceptionInvalidOperands("Power of number by negative exponent");
         }
 
-        long long result;
+        long long result = 0;
 
         if (exp == 0)
         {
@@ -133,7 +133,7 @@ public:
         }
 
         long long prev = factorial(n - 1);
-        long long result;
+        long long result = 0;
 
         if (__builtin_mul_overflow(n, prev, &result))
         {
