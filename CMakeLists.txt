@@ -48,10 +48,12 @@ if(CLANG_FORMAT_EXE)
         "tests/*.cpp"
     )
 
-    add_custom_target(format
-        COMMAND ${CLANG_FORMAT_EXE} -i -style=file ${ALL_SOURCE_FILES}
-        COMMENT "Formatting code with clang-format..."
-    )
+    if (NOT TARGET format)
+        add_custom_target(format
+            COMMAND ${CLANG_FORMAT_EXE} -i -style=file ${ALL_SOURCE_FILES}
+            COMMENT "Formatting code with clang-format..."
+        )
+    endif()
     message(STATUS "clang-format found.")
 else()
     message(WARNING "clang-format not found.")
