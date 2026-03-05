@@ -8,7 +8,13 @@ namespace pvm_math_lib
 class ICalculator
 {
 public:
+    ICalculator() = default;
     virtual ~ICalculator() = default;
+
+    ICalculator(const ICalculator&) = delete;
+    ICalculator& operator=(const ICalculator&) = delete;
+    ICalculator(ICalculator&&) noexcept = delete;
+    ICalculator& operator=(ICalculator&&) noexcept = delete;
 
     virtual long long add(long long first, long long second) const = 0;
     virtual long long sub(long long first, long long second) const = 0;
