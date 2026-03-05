@@ -1,12 +1,12 @@
+#include "pvm_math_lib/calculator_math.hpp"
 #include <gtest/gtest.h>
 #include <limits>
-#include "pvm_math_lib/calculator_math.hpp"
 
 using namespace pvm_math_lib;
 
 class MathExceptionsTest : public ::testing::Test
 {
-protected:
+  protected:
     Calculator calc;
 
     static constexpr long long maxLL = std::numeric_limits<long long>::max();
@@ -15,7 +15,7 @@ protected:
 
 class MathBoundaryTest : public ::testing::Test
 {
-protected:
+  protected:
     Calculator calc;
 };
 

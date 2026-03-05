@@ -7,14 +7,14 @@ namespace pvm_math_lib
 
 class ICalculator
 {
-public:
+  public:
     ICalculator() = default;
     virtual ~ICalculator() = default;
 
-    ICalculator(const ICalculator&) = delete;
-    ICalculator& operator=(const ICalculator&) = delete;
-    ICalculator(ICalculator&&) noexcept = delete;
-    ICalculator& operator=(ICalculator&&) noexcept = delete;
+    ICalculator(const ICalculator &) = delete;
+    ICalculator &operator=(const ICalculator &) = delete;
+    ICalculator(ICalculator &&) noexcept = delete;
+    ICalculator &operator=(ICalculator &&) noexcept = delete;
 
     virtual long long add(long long first, long long second) const = 0;
     virtual long long sub(long long first, long long second) const = 0;
@@ -27,20 +27,20 @@ public:
 
 class Calculator : public ICalculator
 {
-public:
+  public:
     Calculator() = default;
     ~Calculator() override = default;
 
-    Calculator(const Calculator&) = default;
-    Calculator& operator=(const Calculator&) = default;
-    Calculator(Calculator&&) noexcept = default;
-    Calculator& operator=(Calculator&&) noexcept = default;
+    Calculator(const Calculator &) = default;
+    Calculator &operator=(const Calculator &) = default;
+    Calculator(Calculator &&) noexcept = default;
+    Calculator &operator=(Calculator &&) noexcept = default;
 
     long long add(long long first, long long second) const override
     {
         long long result = 0;
 
-        if (__builtin_add_overflow(first, second, &result)) 
+        if (__builtin_add_overflow(first, second, &result))
         {
             throw calculator_exceptions::CalculatorExceptionOverflow("Overflow in add");
         }
@@ -88,7 +88,8 @@ public:
     {
         if (exp < 0)
         {
-            throw calculator_exceptions::CalculatorExceptionInvalidOperands("Power of number by negative exponent");
+            throw calculator_exceptions::CalculatorExceptionInvalidOperands(
+                "Power of number by negative exponent");
         }
 
         long long result = 0;
@@ -125,9 +126,10 @@ public:
     {
         if (n < 0)
         {
-            throw calculator_exceptions::CalculatorExceptionInvalidOperands("Factorial of negative number");
+            throw calculator_exceptions::CalculatorExceptionInvalidOperands(
+                "Factorial of negative number");
         }
-        
+
         if (n == 0 || n == 1)
         {
             return 1;
@@ -145,4 +147,4 @@ public:
     }
 };
 
-}
+} // namespace pvm_math_lib
