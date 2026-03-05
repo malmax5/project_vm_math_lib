@@ -29,3 +29,13 @@ if(PVM_MATH_BUILD_TESTS)
     )
     target_link_libraries(unit_tests_math PRIVATE pvm_math_lib gtest_main)
 endif()
+
+find_program(CLANG_TIDY_EXE NAMES "clang-tidy")
+if(CLANG_TIDY_EXE)
+set_target_properties(unit_tests_math PROPERTIES 
+    CXX_CLANG_TIDY "${CLANG_TIDY_EXE};--header-filter=${CMAKE_CURRENT_SOURCE_DIR}/include/.*"
+    )
+    message(STATUS "clang-tidy found.")
+else()
+    message(WARNING "clang-tidy not found.")
+endif()
