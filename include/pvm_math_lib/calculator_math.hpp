@@ -28,7 +28,13 @@ public:
 class Calculator : public ICalculator
 {
 public:
-    virtual ~Calculator() = default;
+    Calculator() = default;
+    ~Calculator() override = default;
+
+    Calculator(const Calculator&) = default;
+    Calculator& operator=(const Calculator&) = default;
+    Calculator(Calculator&&) noexcept = default;
+    Calculator& operator=(Calculator&&) noexcept = default;
 
     long long add(long long first, long long second) const override
     {
