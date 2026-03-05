@@ -22,7 +22,7 @@ public:
     }
 
     explicit CalculatorExceptionOverflow(const std::string& msg)
-        : CalculatorExceptionBase("Math Error:" + msg)
+        : CalculatorExceptionBase("Math Error: " + msg)
     {
 
     }
@@ -38,7 +38,7 @@ public:
     }
 
     explicit CalculatorExceptionDivideByZero(const std::string& msg)
-        : CalculatorExceptionBase("Math Error:" + msg)
+        : CalculatorExceptionBase("Math Error: " + msg)
     {
 
     }
@@ -54,7 +54,7 @@ public:
     }
 
     explicit CalculatorExceptionInvalidOperands(const std::string& msg)
-        : CalculatorExceptionBase("Math Error:" + msg)
+        : CalculatorExceptionBase("Math Error: " + msg)
     {
 
     }
