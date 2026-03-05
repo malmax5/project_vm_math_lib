@@ -39,3 +39,20 @@ set_target_properties(unit_tests_math PROPERTIES
 else()
     message(WARNING "clang-tidy not found.")
 endif()
+
+find_program(CLANG_FORMAT_EXE NAMES "clang-format")
+if(CLANG_FORMAT_EXE)
+    file(GLOB_RECURSE ALL_SOURCE_FILES
+        "src/*.cpp"
+        "include/*.hpp"
+        "tests/*.cpp"
+    )
+
+    add_custom_target(format
+        COMMAND ${CLANG_FORMAT_EXE} -i -style=file ${ALL_SOURCE_FILES}
+        COMMENT "Formatting code with clang-format..."
+    )
+    message(STATUS "clang-format found.")
+else()
+    message(WARNING "clang-format not found.")
+endif()
