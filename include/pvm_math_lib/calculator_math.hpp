@@ -101,9 +101,9 @@ public:
 
         long long resultTmp = 1;
 
-        while (exp)
+        while (exp != 0)
         {
-            if (exp & 1 && __builtin_mul_overflow(resultTmp, num, &resultTmp))
+            if ((exp & 1) != 0 && __builtin_mul_overflow(resultTmp, num, &resultTmp))
             {
                 throw calculator_exceptions::CalculatorExceptionOverflow("Overflow in power");
             }
@@ -127,7 +127,8 @@ public:
         {
             throw calculator_exceptions::CalculatorExceptionInvalidOperands("Factorial of negative number");
         }
-        else if (n == 0 || n == 1)
+        
+        if (n == 0 || n == 1)
         {
             return 1;
         }
